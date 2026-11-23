@@ -1,0 +1,3 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+<defs><filter id="s" x="-10%" y="-10%" width="130%" height="130%"><feDropShadow dx="4" dy="8" stdDeviation="8" flood-opacity=".18"/></filter></defs><path d="M30 30h340v260l-80 80H30z" fill="#FFE37A" filter="url(#s)"/><path d="M370 290h-80v80z" fill="#E8C24A"/><rect x="150" y="14" width="100" height="32" rx="4" fill="#14B8A6" fill-opacity=".7"/><text x="200" y="190" font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif" font-size="52" font-weight="700" fill="#1E293B" text-anchor="middle" dominant-baseline="middle">NOTE</text>
+</svg>

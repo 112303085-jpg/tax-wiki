@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}}</title>
+<!--
+{{HEADER}}
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111; --paper: #FFFFFF; --muted: #555555; --line: #111111;
+    --blue: #2D5BFF; --purple: #7B61FF; --teal: #14B8A6; --orange: #FF8A3D;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #2A2A2A; }
+  body { font-family: 'Noto Sans TC', 'Microsoft JhengHei', 'PingFang TC', sans-serif; color: var(--ink); }
+
+  /* ---------- 播放框架 ---------- */
+  .deck { position: fixed; inset: 0; overflow: hidden; }
+  .slide {
+    position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px;
+    margin: -360px 0 0 -640px; background: var(--paper); overflow: hidden;
+    padding: 48px 72px 64px; display: none; transform-origin: center center;
+  }
+  .slide.active { display: block; }
+
+  /* ---------- 文字 ---------- */
+  h1.t {
+    position: relative; z-index: 1; display: inline-block; margin: 0 0 30px;
+    font-size: 52px; font-weight: 900; letter-spacing: .02em; line-height: 1.15;
+    transform: skewX(-6deg);
+  }
+  h1.t::after {
+    content: ""; position: absolute; z-index: -1; left: -14px; right: -18px; bottom: 2px; height: 22px;
+    background: var(--hl, var(--purple)); transform: skewX(-18deg);
+  }
+  p, li { font-size: 24px; line-height: 1.55; margin: 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 18px; line-height: 1.5; color: var(--muted); }
+  b, strong { font-weight: 900; }
+  .hl { background: linear-gradient(transparent 58%, var(--hlc, rgba(255,138,61,.55)) 58%); padding: 0 .1em; }
+
+  /* ---------- 漫畫元件 ---------- */
+  .panel {
+    position: relative; background: var(--paper); border: 4px solid var(--line);
+    box-shadow: 8px 8px 0 var(--line); padding: 22px 26px;
+  }
+  .panel.fill { background: var(--c); color: #fff; }
+  .tag {
+    position: absolute; top: -20px; left: 18px; z-index: 2; background: var(--ink); color: #fff;
+    font-weight: 900; font-size: 18px; padding: 4px 14px; transform: skewX(-10deg);
+  }
+  .tag.c { background: var(--c); }
+  .bubble {
+    position: relative; display: inline-block; background: var(--paper); border: 4px solid var(--line);
+    border-radius: 30px; padding: 16px 28px; font-size: 26px; font-weight: 700; line-height: 1.45;
+  }
+  .bubble::before, .bubble::after { content: ""; position: absolute; border-style: solid; }
+  .bubble::before { left: 54px; bottom: -32px; border-width: 32px 22px 0 0; border-color: var(--line) transparent transparent transparent; }
+  .bubble::after  { left: 59px; bottom: -22px; border-width: 22px 14px 0 0; border-color: var(--paper) transparent transparent transparent; }
+  .stat {
+    font-weight: 900; line-height: 1; color: var(--c, var(--purple)); white-space: nowrap;
+    -webkit-text-stroke: 3px var(--ink); paint-order: stroke fill; text-shadow: 6px 6px 0 var(--ink);
+  }
+  .num {
+    flex: none; width: 58px; height: 58px; border-radius: 50%; border: 4px solid var(--line);
+    background: var(--c, var(--blue)); color: #fff; font-weight: 900; font-size: 28px;
+    display: grid; place-items: center; box-shadow: 4px 4px 0 var(--line);
+  }
+  .icon {
+    flex: none; width: var(--s, 120px); height: var(--s, 120px); border-radius: 50%;
+    border: 4px solid var(--line); background: var(--paper); box-shadow: 6px 6px 0 var(--line);
+    display: grid; place-items: center;
+  }
+  .icon img { width: 62%; height: 62%; }
+  .speed {
+    position: absolute; pointer-events: none;
+    background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(17,17,17,.85) 0deg .9deg, transparent .9deg 6deg);
+    -webkit-mask: radial-gradient(circle at 50% 50%, transparent 0 32%, #000 62%);
+            mask: radial-gradient(circle at 50% 50%, transparent 0 32%, #000 62%);
+  }
+  .dots { position: absolute; pointer-events: none; background: url('../../assets/shapes/04-dot-grid.svg') repeat; background-size: 150px; opacity: .55; }
+  .stripes { position: absolute; pointer-events: none; background: url('../../assets/shapes/08-diagonal-stripes.svg') repeat; background-size: 150px; opacity: .35; }
+  .slab { position: absolute; background: var(--c); }
+  .slab.k { background: var(--ink); }
+
+  /* ---------- 表格 ---------- */
+  table.tbl { border-collapse: collapse; border: 4px solid var(--line); box-shadow: 8px 8px 0 var(--line); background: var(--paper); }
+  .tbl th { background: var(--ink); color: #fff; font-weight: 900; font-size: 21px; text-align: left; padding: 11px 20px; }
+  .tbl td { border-top: 2px solid var(--line); font-size: 21px; padding: 10px 20px; }
+  .tbl td.r { text-align: right; font-variant-numeric: tabular-nums; }
+  .tbl td.em { font-weight: 900; color: var(--blue); }
+
+  /* ---------- 頁尾 ---------- */
+  .foot { position: absolute; left: 72px; right: 170px; bottom: 22px; font-size: 14px; color: var(--muted); }
+  .pno {
+    position: absolute; right: 44px; bottom: 16px; border: 3px solid var(--line); background: var(--paper);
+    font-weight: 900; font-size: 16px; padding: 1px 12px; transform: skewX(-10deg);
+  }
+  .stamp {
+    display: inline-block; border: 5px solid var(--orange); color: var(--orange); font-weight: 900;
+    font-size: 30px; letter-spacing: .3em; padding: 4px 6px 4px 18px; transform: rotate(-8deg); background: var(--paper);
+  }
+
+  /* ---------- 版面工具 ---------- */
+  .row { display: flex; gap: 32px; align-items: center; }
+  .col { display: flex; flex-direction: column; gap: 22px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .abs { position: absolute; }
+
+  /* ---------- 導覽提示 ---------- */
+  .hint {
+    position: fixed; left: 50%; top: 14px; transform: translateX(-50%); z-index: 9;
+    background: rgba(17,17,17,.85); color: #FFF; font: 14px 'Microsoft JhengHei', sans-serif;
+    padding: 6px 14px; border-radius: 4px; transition: opacity .6s; pointer-events: none;
+  }
+  .hint.gone { opacity: 0; }
+
+
+  /* ---------- 通用版型（tools/slides_html.py） ---------- */
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; }
+  .card-head { font-size: 28px; font-weight: 900; line-height: 1.3; }
+  .card-sub { font-size: 20px; color: var(--muted); margin-top: 6px; line-height: 1.45; }
+  .bullets { margin: 0; padding-left: 30px; display: flex; flex-direction: column; gap: 12px; }
+  .keybar { margin-top: 30px; transform: rotate(-.5deg); }
+  .keybar p { font-size: 26px; font-weight: 900; }
+  .note { margin-top: 18px; }
+  .notes { display: none; }
+
+  @media print {
+    @page { size: 1280px 720px; margin: 0; }
+    html, body { background: #fff; height: auto; }
+    .deck { position: static; overflow: visible; }
+    .slide { display: block !important; position: relative; left: 0; top: 0; margin: 0; transform: none !important; break-after: page; page-break-after: always; }
+    .hint { display: none; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+{{SLIDES}}
+</main>
+<div class="hint">← → 翻頁｜F 全螢幕</div>
+
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length, cur = 0;
+
+  slides.forEach(function (s, i) {
+    if (i === 0) return;                       // 封面不顯示頁碼
+    var n = document.createElement('div');
+    n.className = 'pno'; n.textContent = (i + 1) + ' / ' + total;
+    s.appendChild(n);
+  });
+
+  function fit() {
+    var k = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    slides.forEach(function (s) { s.style.transform = 'scale(' + k + ')'; });
+  }
+  function show(i) {
+    cur = Math.max(0, Math.min(total - 1, i));
+    slides.forEach(function (s, j) { s.classList.toggle('active', j === cur); });
+    if (location.hash !== '#' + (cur + 1)) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function fromHash() { var n = parseInt(location.hash.slice(1), 10); return isNaN(n) ? 0 : n - 1; }
+
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Enter') { e.preventDefault(); show(cur + 1); }
+    else if (k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace') { e.preventDefault(); show(cur - 1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(total - 1);
+    else if (k === 'f' || k === 'F') {
+      if (!document.fullscreenElement) { document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); }
+      else { document.exitFullscreen && document.exitFullscreen(); }
+    }
+  });
+  document.getElementById('deck').addEventListener('click', function (e) {
+    show(e.clientX > window.innerWidth / 2 ? cur + 1 : cur - 1);
+  });
+  window.addEventListener('resize', fit);
+  window.addEventListener('hashchange', function () { show(fromHash()); });
+
+  fit(); show(fromHash());
+  setTimeout(function () { var h = document.querySelector('.hint'); if (h) h.classList.add('gone'); }, 3500);
+})();
+</script>
+</body>
+</html>

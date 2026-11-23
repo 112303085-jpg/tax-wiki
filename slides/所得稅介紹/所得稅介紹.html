@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>所得稅介紹</title>
+<!--
+  由 tools/deck.py render 從 03_逐頁.md 產生，請勿手改；要修改內容請改 03_逐頁.md 後重新 render。
+  層級：入門｜狀態：定稿｜資料基準日：115年11月24日
+  引用頁：來源摘要/115年度綜所稅免稅額扣除額課稅級距公告、數額表/房地合一稅率、條文/所得稅法第14條之4、條文/所得稅法第14條之6、條文/所得稅法第17條、條文/所得稅法第4條之4、條文/所得稅法第4條之5、條文/所得稅法第5條、概念/居住者與非居住者、概念/物價指數連動調整、稅目/綜合所得稅
+  操作：→ / 空白鍵 / 點右半邊 下一頁；← / 點左半邊 上一頁；Home / End；F 全螢幕；列印時一頁一張。
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--paper:#fff;--muted:#555;--line:#111;--blue:#2D5BFF;--purple:#7B61FF;--teal:#14B8A6;--orange:#FF8A3D}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:#2A2A2A}
+body{font-family:'Noto Sans TC','Microsoft JhengHei','PingFang TC',sans-serif;color:var(--ink)}
+.deck{position:fixed;inset:0;overflow:hidden}
+.slide{position:absolute;left:50%;top:50%;width:1280px;height:720px;margin:-360px 0 0 -640px;background:var(--paper);overflow:hidden;padding:44px 72px 64px;display:none;transform-origin:center center}
+.slide.active{display:block}
+h1.t{position:relative;z-index:1;display:inline-block;margin:0 0 10px;font-size:50px;font-weight:900;line-height:1.15;transform:skewX(-6deg)}
+h1.t::after{content:"";position:absolute;z-index:-1;left:-14px;right:-18px;bottom:2px;height:22px;background:var(--hl,var(--purple));transform:skewX(-18deg)}
+.lead{font-size:24px;font-weight:700;color:var(--muted);margin:0 0 34px;line-height:1.45}
+p,li{font-size:26px;line-height:1.55;margin:0}
+.muted{color:var(--muted)}.small{font-size:17px;line-height:1.5;color:var(--muted)}
+b,strong{font-weight:900}
+.panel{position:relative;background:var(--paper);border:4px solid var(--line);box-shadow:8px 8px 0 var(--line);padding:24px 28px}
+.clip{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.panel.fill{background:var(--c);color:#fff}
+.tag{position:absolute;top:-20px;left:18px;z-index:2;background:var(--c,var(--ink));color:#fff;font-weight:900;font-size:18px;padding:4px 14px;transform:skewX(-10deg);white-space:nowrap}
+.bubble{position:relative;display:inline-block;background:var(--paper);border:4px solid var(--line);border-radius:30px;padding:12px 26px;font-size:23px;font-weight:700;line-height:1.45;margin-bottom:34px}
+.bubble::before,.bubble::after{content:"";position:absolute;border-style:solid}
+.bubble::before{left:54px;bottom:-30px;border-width:30px 20px 0 0;border-color:var(--line) transparent transparent transparent}
+.bubble::after{left:59px;bottom:-20px;border-width:20px 13px 0 0;border-color:var(--paper) transparent transparent transparent}
+.stat{font-weight:900;line-height:1;color:var(--c,var(--purple));-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;text-shadow:6px 6px 0 var(--ink);white-space:nowrap}
+.num{flex:none;width:54px;height:54px;border-radius:50%;border:4px solid var(--line);background:var(--c,var(--blue));color:#fff;font-weight:900;font-size:26px;display:grid;place-items:center;box-shadow:4px 4px 0 var(--line)}
+.icon{flex:none;width:var(--s,110px);height:var(--s,110px);border-radius:50%;border:4px solid var(--line);background:var(--paper);box-shadow:6px 6px 0 var(--line);display:grid;place-items:center}
+.icon img{width:62%;height:62%}
+.speed{position:absolute;pointer-events:none;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(17,17,17,.85) 0deg .9deg,transparent .9deg 6deg);-webkit-mask:radial-gradient(circle at 50% 50%,transparent 0 32%,#000 62%);mask:radial-gradient(circle at 50% 50%,transparent 0 32%,#000 62%)}
+.dots{position:absolute;pointer-events:none;background:url('../../assets/shapes/04-dot-grid.svg') repeat;background-size:150px;opacity:.55}
+.stripes{position:absolute;pointer-events:none;background:url('../../assets/shapes/08-diagonal-stripes.svg') repeat;background-size:150px;opacity:.3}
+.slab{position:absolute;background:var(--c)}.slab.k{background:var(--ink)}
+table.tbl{border-collapse:collapse;border:4px solid var(--line);box-shadow:8px 8px 0 var(--line);background:var(--paper)}
+.tbl th{background:var(--ink);color:#fff;font-weight:900;font-size:22px;text-align:left;padding:12px 20px}
+.tbl td{border-top:2px solid var(--line);font-size:22px;padding:11px 20px}
+.tbl td.r,.tbl th.r{text-align:right;font-variant-numeric:tabular-nums}
+.tbl tr.em td{font-weight:900;color:var(--blue)}
+.foot{position:absolute;left:72px;right:170px;bottom:22px;font-size:14px;color:var(--muted)}
+.pno{position:absolute;right:44px;bottom:16px;border:3px solid var(--line);background:var(--paper);font-weight:900;font-size:16px;padding:1px 12px;transform:skewX(-10deg)}
+.stamp{display:inline-block;border:5px solid var(--orange);color:var(--orange);font-weight:900;font-size:30px;letter-spacing:.3em;padding:4px 6px 4px 18px;transform:rotate(-8deg);background:var(--paper)}
+.row{display:flex;gap:28px;align-items:center}.col{display:flex;flex-direction:column;gap:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.abs{position:absolute}
+.hint{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:9;background:rgba(17,17,17,.85);color:#fff;font:14px 'Microsoft JhengHei',sans-serif;padding:6px 14px;border-radius:4px;transition:opacity .6s;pointer-events:none}
+.hint.gone{opacity:0}
+#deck-check{display:none}
+@media print{@page{size:1280px 720px;margin:0}html,body{background:#fff;height:auto}.deck{position:static;overflow:visible}.slide{display:block!important;position:relative;left:0;top:0;margin:0;transform:none!important;break-after:page;page-break-after:always}.hint{display:none}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+</style>
+</head>
+<body>
+<main class="deck" id="deck">
+<section class="slide nofoot" aria-label="所得稅介紹"><div class="slab k" style="right:-120px;top:-60px;width:640px;height:330px;transform:rotate(-14deg);"></div>
+<div class="slab" style="--c:var(--purple);right:-110px;top:-80px;width:620px;height:310px;transform:rotate(-14deg);"></div>
+<div class="slab k" style="left:-120px;bottom:-90px;width:560px;height:200px;transform:rotate(-14deg);"></div>
+<div class="slab" style="--c:var(--orange);left:-130px;bottom:-104px;width:540px;height:190px;transform:rotate(-14deg);"></div>
+<div class="speed" style="left:180px;top:-260px;width:1100px;height:1100px;opacity:.28;"></div>
+<div class="dots" style="right:40px;bottom:60px;width:300px;height:210px;"></div>
+<div class="abs" style="left:96px;top:190px;"><div class="tag" style="position:static;display:inline-block;font-size:22px;margin-bottom:18px;">綜合所得稅與房地合一入門｜115年度版</div>
+<div style="font-size:132px;font-weight:900;line-height:1;transform:skewX(-8deg);text-shadow:8px 8px 0 var(--purple);white-space:nowrap;">所得稅介紹</div></div>
+<div class="icon" style="--s:190px;position:absolute;right:150px;top:300px;"><img src="../../assets/icons/23-money.svg" alt=""></div>
+<div class="abs small" style="left:96px;top:530px;color:var(--ink);font-weight:700;">資料基準日：115年11月24日</div></section>
+<section class="slide" aria-label="今天的四個問題"><h1 class="t" style="--hl:var(--teal)">今天的四個問題</h1><p class="lead">誰要繳、怎麼算、金額為何每年變、賣房子怎麼課</p><div class="grid2" style="row-gap:44px;margin-top:10px;"><div class="panel row" style="gap:22px;min-height:170px;"><div class="num" style="--c:var(--purple)">1</div><div><p style="font-size:28px;font-weight:900;">誰要繳？</p><p class="muted" style="font-size:22px;">境內居住者與非居住者</p></div><div class="icon" style="--s:88px;margin-left:auto;"><img src="../../assets/icons/05-team.svg" alt=""></div></div><div class="panel row" style="gap:22px;min-height:170px;"><div class="num" style="--c:var(--orange)">2</div><div><p style="font-size:28px;font-weight:900;">怎麼算？</p><p class="muted" style="font-size:22px;">免稅額、扣除額、累進稅率</p></div><div class="icon" style="--s:88px;margin-left:auto;"><img src="../../assets/icons/04-gear.svg" alt=""></div></div><div class="panel row" style="gap:22px;min-height:170px;"><div class="num" style="--c:var(--teal)">3</div><div><p style="font-size:28px;font-weight:900;">金額為什麼每年變？</p><p class="muted" style="font-size:22px;">物價指數連動調整</p></div><div class="icon" style="--s:88px;margin-left:auto;"><img src="../../assets/icons/03-chart-growth.svg" alt=""></div></div><div class="panel row" style="gap:22px;min-height:170px;"><div class="num" style="--c:var(--blue)">4</div><div><p style="font-size:28px;font-weight:900;">賣房子怎麼課稅？</p><p class="muted" style="font-size:22px;">房地合一所得稅</p></div><div class="icon" style="--s:88px;margin-left:auto;"><img src="../../assets/icons/16-document.svg" alt=""></div></div></div><div class="foot">所得稅介紹</div></section>
+<section class="slide nofoot" aria-label="第一部分：綜合所得稅"><div class="speed" style="left:-160px;top:-470px;width:1600px;height:1600px;opacity:.32;"></div>
+<div class="slab k" style="left:-80px;top:300px;width:1500px;height:200px;transform:rotate(-8deg);"></div>
+<div class="slab" style="--c:var(--teal);left:-80px;top:290px;width:1500px;height:190px;transform:rotate(-8deg);"></div>
+<div class="abs" style="left:110px;top:250px;"><div class="tag" style="position:static;display:inline-block;font-size:24px;">第一部分</div>
+<div style="font-size:100px;font-weight:900;color:#fff;-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:8px 8px 0 var(--ink);transform:skewX(-8deg);margin-top:14px;white-space:nowrap;">綜合所得稅</div></div>
+<div class="icon" style="--s:170px;position:absolute;right:120px;top:100px;"><img src="../../assets/icons/11-book.svg" alt=""></div>
+<div class="dots" style="left:60px;bottom:40px;width:330px;height:150px;"></div></section>
+<section class="slide" aria-label="誰要繳綜合所得稅？"><h1 class="t" style="--hl:var(--purple)">誰要繳綜合所得稅？</h1><p class="lead">有中華民國來源所得的個人要繳；身分看住所與天數，不看國籍</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:22px;"><div class="panel" style="padding-top:36px;min-height:220px;"><div class="tag" style="--c:var(--blue)">境內居住之個人（符合其一）</div><div class="row" style="gap:20px;align-items:flex-start;"><div class="icon" style="--s:80px;"><img src="../../assets/icons/09-globe.svg" alt=""></div><ul style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px;"><li>在臺灣有住所，並經常居住</li><li>在臺灣沒有住所，但一個課稅年度內居留合計滿183天</li></ul></div></div><div class="panel" style="padding-top:36px;min-height:220px;"><div class="tag" style="--c:var(--orange)">非境內居住之個人</div><div class="row" style="gap:20px;align-items:flex-start;"><div class="icon" style="--s:80px;"><img src="../../assets/icons/05-team.svg" alt=""></div><ul style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px;"><li>上面兩種情形以外的人</li><li>有中華民國來源所得者，原則上就源扣繳</li></ul></div></div></div><div class="foot">出處：所得稅法第2條、第7條</div></section>
+<section class="slide" aria-label="例題：183天要連續嗎？"><h1 class="t" style="--hl:var(--orange)">例題：183天要連續嗎？</h1><p class="lead">一個課稅年度內居留合計滿183天就是居住者，不必連續</p><p class="muted" style="margin-bottom:30px;">一位外籍人士在臺灣沒有住所，115年度分三次來臺，分別停留60天、70天、55天。</p><div class="row" style="align-items:stretch;gap:44px;"><div style="flex:1.3;"><div class="panel" style="overflow:hidden;padding:26px 34px;transform:rotate(-.5deg);"><div class="stripes" style="inset:0;"></div><p style="position:relative;font-size:42px;font-weight:700;white-space:nowrap;">60 ＋ 70 ＋ 55 ＝ 185</p></div><p style="margin-top:28px;font-weight:700;">已滿183天，是境內居住之個人；條文寫「居留合計」，不必連續。</p></div><div style="flex:1;"><div class="panel" style="transform:rotate(1deg);text-align:center;padding:52px 26px 40px;">
+<div class="clip"><div class="speed" style="left:-220px;top:-300px;width:900px;height:900px;opacity:.2;"></div></div><div class="tag">合計</div>
+<div style="position:relative;"><div class="stat" style="--c:var(--orange);font-size:84px;">185天</div></div></div></div></div><div class="icon" style="--s:84px;position:absolute;right:72px;top:40px;"><img src="../../assets/icons/08-clock.svg" alt=""></div><div class="foot">出處：所得稅法第7條第2項第2款</div></section>
+<section class="slide" aria-label="綜所稅一條公式"><h1 class="t" style="--hl:var(--teal)">綜所稅一條公式</h1><p class="lead">所得總額減免稅額、扣除額得到所得淨額，再乘稅率減累進差額</p><div class="row" style="align-items:flex-start;gap:40px;"><div class="panel" style="padding:14px;width:560px;"><img src="images/所得稅介紹_所得淨額漏斗.svg" alt="綜合所得總額減免稅額、減扣除額，等於所得淨額" style="width:100%;display:block;"></div><div class="col" style="gap:20px;flex:1;"><div class="row" style="gap:20px;align-items:flex-start;"><div><p style="font-weight:900;font-size:28px;">綜合所得總額</p><p class="muted">薪資、利息、股利、租金等各類所得加總</p></div></div><div class="row" style="gap:20px;align-items:flex-start;"><div><p style="font-weight:900;font-size:28px;">免稅額</p><p class="muted">本人、配偶、受扶養親屬，每人一份</p></div></div><div class="row" style="gap:20px;align-items:flex-start;"><div><p style="font-weight:900;font-size:28px;">扣除額</p><p class="muted">標準或列舉二選一，再加特別扣除額</p></div></div></div></div><div class="icon" style="--s:84px;position:absolute;right:72px;top:40px;"><img src="../../assets/icons/04-gear.svg" alt=""></div><div class="foot">出處：所得稅法第14條、第17條第1項、第5條</div></section>
+<section class="slide" aria-label="免稅額與扣除額（115年度）"><h1 class="t" style="--hl:var(--blue)">免稅額與扣除額（115年度）</h1><p class="lead">115年度每人免稅額101,000元；未成年子女自115年度起多50%</p><div class="bubble">標準扣除額和列舉扣除額二選一，特別扣除額另外再扣。</div><div class="row" style="align-items:flex-start;gap:44px;"><div><table class="tbl"><tr><th class="">項目</th><th class="">115年度金額</th></tr><tr><td class="">免稅額（每人）</td><td class="">101,000元</td></tr><tr><td class="">免稅額：年滿70歲的本人、配偶、受扶養直系尊親屬</td><td class="">151,500元（多50%）</td></tr><tr><td class="">免稅額：受扶養的未成年子女（115年度起）</td><td class="">多50%＊</td></tr><tr><td class="">標準扣除額（單身；有配偶者加倍）</td><td class="">136,000元</td></tr><tr><td class="">薪資所得特別扣除額（每人）</td><td class="">227,000元</td></tr></table><p class="small" style="margin-top:22px;">＊第17條於115年9月11日修正、自115年1月1日施行；115年度公告早於修法，附表未列這一項的金額。</p></div><div class="col" style="gap:30px;align-items:center;"><div class="icon" style="--s:120px;"><img src="../../assets/icons/23-money.svg" alt=""></div></div></div><div class="foot">出處：所得稅法第17條；財政部114年11月27日公告｜適用：115年度所得（116年5月申報）</div></section>
+<section class="slide" aria-label="五級累進稅率"><h1 class="t" style="--hl:var(--purple)">五級累進稅率</h1><p class="lead">稅率5%到40%，只有超過的那一段適用較高稅率</p><div class="row" style="justify-content:center;"><div class="panel" style="padding:14px;width:760px;"><img src="images/所得稅介紹_115年度稅率階梯.svg" alt="115年度五級稅率：61萬以下5%、61萬至138萬12%、138萬至277萬20%、277萬至519萬30%、519萬以上40%" style="width:100%;display:block;"></div></div><div class="icon" style="--s:84px;position:absolute;right:72px;top:40px;"><img src="../../assets/icons/03-chart-growth.svg" alt=""></div><div class="foot">出處：所得稅法第5條第2項；115年度級距：財政部公告</div></section>
+<section class="slide" aria-label="例題一：年薪80萬元"><h1 class="t" style="--hl:var(--orange)">例題一：年薪80萬元</h1><p class="lead">單身年薪80萬元、選標準扣除額，115年度應納稅額16,800元</p><p class="muted" style="margin-bottom:30px;">115年度，單身、無扶養、薪資800,000元、選標準扣除額。</p><div class="row" style="align-items:flex-start;gap:56px;"><div><table class="tbl"><tr><th class="">步驟</th><th class="r">金額（元）</th></tr><tr><td class="">薪資所得</td><td class="r">800,000</td></tr><tr><td class="">− 免稅額</td><td class="r">101,000</td></tr><tr><td class="">− 標準扣除額</td><td class="r">136,000</td></tr><tr><td class="">− 薪資所得特別扣除額</td><td class="r">227,000</td></tr><tr class="em"><td class="">＝ 所得淨額</td><td class="r">336,000</td></tr></table></div><div style="flex:1;"><div class="panel" style="transform:rotate(1deg);text-align:center;padding:52px 26px 40px;">
+<div class="clip"><div class="speed" style="left:-220px;top:-300px;width:900px;height:900px;opacity:.2;"></div></div><div class="tag">應納稅額</div>
+<div style="position:relative;"><div class="stat" style="--c:var(--orange);font-size:84px;">16,800元</div></div></div><p style="margin-top:28px;font-weight:700;">所得淨額336,000元落在第一級（5%）。</p></div></div><div class="icon" style="--s:84px;position:absolute;right:72px;top:40px;"><img src="../../assets/icons/01-lightbulb.svg" alt=""></div><div class="foot">出處：115年度金額：財政部公告</div></section>
+<section class="slide" aria-label="例題二：淨額200萬元"><h1 class="t" style="--hl:var(--teal)">例題二：淨額200萬元</h1><p class="lead">速算公式和逐段累進算出來一樣，都是246,900元</p><p class="muted" style="margin-bottom:30px;">115年度，所得淨額2,000,000元，落在第三級（稅率20%）。</p><div class="row" style="align-items:stretch;gap:44px;"><div style="flex:1.3;"><div class="panel" style="overflow:hidden;padding:26px 34px;transform:rotate(-.5deg);"><div class="stripes" style="inset:0;"></div><p style="position:relative;font-size:42px;font-weight:700;white-space:nowrap;">2,000,000 × 20% − 153,100</p></div><p style="margin-top:28px;font-weight:700;">整筆淨額都乘20%，會把前面低稅率的那幾段多算；累進差額就是要扣回的部分。</p></div><div style="flex:1;"><div class="panel" style="transform:rotate(1deg);text-align:center;padding:52px 26px 40px;">
+<div class="clip"><div class="speed" style="left:-220px;top:-300px;width:900px;height:900px;opacity:.2;"></div></div><div class="tag">應納稅額</div>
+<div style="position:relative;"><div class="stat" style="--c:var(--teal);font-size:84px;">246,900元</div></div></div></div></div><div class="icon" style="--s:84px;position:absolute;right:72px;top:40px;"><img src="../../assets/icons/02-target.svg" alt=""></div><div class="foot">出處：所得稅法第5條；115年度速算公式：財政部公告</div></section>
+<section class="slide" aria-label="法條金額≠今年金額"><h1 class="t" style="--hl:var(--blue)">法條金額≠今年金額</h1><p class="lead">法條寫的是基準；物價累計漲3%以上才調整，報稅看當年度公告</p><div style="display:grid;grid-template-columns:1fr auto 1fr;gap:30px;margin-top:22px;"><div class="panel" style="padding-top:36px;min-height:220px;"><div class="tag" style="--c:var(--blue)">免稅額</div><div class="row" style="gap:20px;align-items:flex-start;"><div class="icon" style="--s:80px;"><img src="../../assets/icons/03-chart-growth.svg" alt=""></div><ul style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px;"><li>法條基準：每人全年六萬元</li><li>115年度：101,000元</li></ul></div></div><img src="../../assets/diagrams/01-arrow-right.svg" alt="" style="width:64px;align-self:center;"><div class="panel" style="padding-top:36px;min-height:220px;"><div class="tag" style="--c:var(--orange)">5%級距上限</div><div class="row" style="gap:20px;align-items:flex-start;"><ul style="margin:0;padding-left:24px;display:flex;flex-direction:column;gap:8px;"><li>法條基準：五十二萬元</li><li>115年度：610,000元</li></ul></div></div></div><ul style="margin:40px 0 0;padding-left:28px;"><li><b>115年度跟113年度相比上漲4.13%，所以調整</b></li></ul><div class="foot">出處：所得稅法第5條、第5條之1；115年度金額：財政部公告</div></section>
+<section class="slide" aria-label="什麼時候報？"><h1 class="t" style="--hl:var(--purple)">什麼時候報？</h1><p class="lead">每年5月1日至5月31日，申報上一年度的所得</p><div class="row" style="gap:48px;align-items:center;">
+<div class="panel" style="flex:1;overflow:hidden;transform:rotate(-1deg);padding:22px 30px;"><div class="speed" style="left:-120px;top:-360px;width:900px;height:900px;opacity:.18;"></div>
+<div style="position:relative;"><p class="small" style="color:var(--ink);font-weight:700;">每年</p>
+<div class="stat" style="--c:var(--purple);font-size:64px;margin:12px 0 16px;">5月1日～5月31日</div>
+<p style="font-size:25px;font-weight:900;">申報上一年度的所得</p></div></div>
+<div class="row" style="gap:22px;"><div class="icon" style="--s:150px;"><img src="../../assets/icons/17-calendar.svg" alt=""></div></div></div><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:34px;"><div class="panel" style="padding:14px 18px;"><p style="font-weight:900;font-size:21px;">115年度所得</p><p class="muted" style="font-size:18px;">116年5月1日至5月31日申報</p></div><div class="panel" style="padding:14px 18px;"><p style="font-weight:900;font-size:21px;">合併申報</p><p class="muted" style="font-size:18px;">本人、配偶和受扶養親屬原則上合併申報</p></div></div><div class="foot">出處：所得稅法第71條、第15條</div></section>
+<section class="slide nofoot" aria-label="第二部分：房地合一"><div class="speed" style="left:-160px;top:-470px;width:1600px;height:1600px;opacity:.32;"></div>
+<div class="slab k" style="left:-80px;top:300px;width:1500px;height:200px;transform:rotate(-8deg);"></div>
+<div class="slab" style="--c:var(--orange);left:-80px;top:290px;width:1500px;height:190px;transform:rotate(-8deg);"></div>
+<div class="abs" style="left:110px;top:250px;"><div class="tag" style="position:static;display:inline-block;font-size:24px;">第二部分</div>
+<div style="font-size:100px;font-weight:900;color:#fff;-webkit-text-stroke:4px var(--ink);paint-order:stroke fill;text-shadow:8px 8px 0 var(--ink);transform:skewX(-8deg);margin-top:14px;white-space:nowrap;">房地合一</div></div>
+<div class="icon" style="--s:170px;position:absolute;right:120px;top:100px;"><img src="../../assets/icons/18-flag.svg" alt=""></div>
+<div class="dots" style="left:60px;bottom:40px;width:330px;height:150px;"></div></section>
+<section class="slide" aria-label="哪些房地要適用？"><h1 class="t" style="--hl:var(--teal)">哪些房地要適用？</h1><p class="lead">105年1月1日以後取得的房地，出售時適用房地合一、分開計稅</p><div class="row" style="align-items:flex-start;gap:40px;"><div class="col" style="gap:28px;flex:1;"><div class="row" style="gap:20px;align-items:flex-start;"><div class="num" style="--c:var(--purple)">1</div><div><p style="font-weight:900;font-size:28px;">105年1月1日以後取得的房屋、土地</p><p class="muted">出售時適用房地合一</p></div></div><div class="row" style="gap:20px;align-items:flex-start;"><div class="num" style="--c:var(--orange)">2</div><div><p style="font-weight:900;font-size:28px;">預售屋、以設定地上權方式取得的房屋使用權</p><p class="muted">105年1月1日以後取得的也算</p></div></div><div class="row" style="gap:20px;align-items:flex-start;"><div class="num" style="--c:var(--teal)">3</div><div><p style="font-weight:900;font-size:28px;">取得日原則上是完成所有權移轉登記日</p><p class="muted">不是簽約日（預售房地除外）</p></div></div><div class="row" style="gap:20px;align-items:flex-start;"><div class="num" style="--c:var(--blue)">4</div><div><p style="font-weight:900;font-size:28px;">不併入綜合所得總額</p><p class="muted">分開計算、分開申報</p></div></div></div><div class="icon" style="--s:150px;"><img src="../../assets/icons/16-document.svg" alt=""></div></div><div class="foot">出處：所得稅法第4條之4、第14條之4第3項</div></section>
+<section class="slide" aria-label="持有越久，稅率越低"><h1 class="t" style="--hl:var(--blue)">持有越久，稅率越低</h1><p class="lead">境內居住者持有2年以內45%，超過10年降到15%</p><div class="bubble">成交價 − 成本 − 費用 − 土地漲價總數額 ＝ 課稅餘額</div><div class="row" style="align-items:flex-start;gap:44px;"><div><table class="tbl"><tr><th class="">境內居住之個人：持有期間</th><th class="">稅率</th></tr><tr><td class="">2年以內</td><td class="">45%</td></tr><tr><td class="">超過2年，未逾5年</td><td class="">35%</td></tr><tr><td class="">超過5年，未逾10年</td><td class="">20%</td></tr><tr><td class="">超過10年</td><td class="">15%</td></tr></table><p class="small" style="margin-top:22px;">沒有費用證明時，費用按成交價額3%計算，最多30萬元。</p></div><div class="col" style="gap:30px;align-items:center;"><div class="icon" style="--s:120px;"><img src="../../assets/icons/08-clock.svg" alt=""></div></div></div><div class="foot">出處：所得稅法第14條之4第1項、第3項第1款；第14條之6</div></section>
+<section class="slide" aria-label="身分不同，稅率也不同"><h1 class="t" style="--hl:var(--purple)">身分不同，稅率也不同</h1><p class="lead">非居住者超過2年一律35%，居住者持有越久稅率越低</p><div class="bubble">例題：課稅餘額2,000,000元</div><div class="row" style="align-items:flex-start;gap:44px;"><div><table class="tbl"><tr><th class="">持有期間</th><th class="">境內居住之個人</th><th class="">非境內居住之個人</th></tr><tr><td class="">3年</td><td class="">700,000元（35%）</td><td class="">700,000元（35%）</td></tr><tr><td class="">7年</td><td class="">400,000元（20%）</td><td class="">700,000元（35%）</td></tr></table><p class="small" style="margin-top:22px;">非境內居住之個人：持有2年以內45%；超過2年一律35%。</p></div><div class="col" style="gap:30px;align-items:center;"><div class="icon" style="--s:120px;"><img src="../../assets/icons/09-globe.svg" alt=""></div></div></div><div class="foot">出處：所得稅法第14條之4第3項</div></section>
+<section class="slide" aria-label="自住房地的優惠"><h1 class="t" style="--hl:var(--orange)">自住房地的優惠</h1><p class="lead">三個條件同時符合，課稅餘額400萬元以內免稅</p><div class="row" style="gap:48px;align-items:center;">
+<div class="panel" style="flex:1;overflow:hidden;transform:rotate(-1deg);padding:22px 30px;"><div class="speed" style="left:-120px;top:-360px;width:900px;height:900px;opacity:.18;"></div>
+<div style="position:relative;"><p class="small" style="color:var(--ink);font-weight:700;">課稅餘額</p>
+<div class="stat" style="--c:var(--orange);font-size:64px;margin:12px 0 16px;">400萬元</div>
+<p style="font-size:25px;font-weight:900;">以內免稅；超過的部分按10%課稅</p></div></div>
+<div class="row" style="gap:22px;"><div class="icon" style="--s:120px;"><img src="../../assets/icons/07-check-circle.svg" alt=""></div><div class="icon" style="--s:120px;"><img src="../../assets/icons/20-trophy.svg" alt=""></div></div></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:34px;"><div class="panel" style="padding:14px 18px;"><p style="font-weight:900;font-size:21px;">設籍並持有居住連續滿6年</p><p class="muted" style="font-size:18px;">本人、配偶或未成年子女</p></div><div class="panel" style="padding:14px 18px;"><p style="font-weight:900;font-size:21px;">出售前6年內</p><p class="muted" style="font-size:18px;">沒有出租、營業或執行業務使用</p></div><div class="panel" style="padding:14px 18px;"><p style="font-weight:900;font-size:21px;">出售前6年內</p><p class="muted" style="font-size:18px;">本人、配偶、未成年子女沒用過這個優惠</p></div></div><div class="foot">出處：所得稅法第4條之5第1項第1款；第14條之4第3項第1款第8目</div></section>
+<section class="slide" aria-label="常見誤解"><h1 class="t" style="--hl:var(--teal)">常見誤解</h1><p class="lead">免稅額、稅率、申報年度、183天、賣房所得五個誤解</p><div class="row" style="align-items:flex-start;gap:40px;"><table class="tbl"><tr><th class="">誤解</th><th class="">正確</th></tr><tr><td class="">免稅額是6萬元</td><td class="">6萬元是法定基準，115年度是101,000元</td></tr><tr><td class="">淨額超過61萬元，全部適用12%</td><td class="">只有超過的那一段適用12%</td></tr><tr><td class="">5月報的是今年的所得</td><td class="">報的是上一年度的所得</td></tr><tr><td class="">183天要連續</td><td class="">條文是「居留合計」</td></tr><tr><td class="">賣房子賺的錢併入綜所稅</td><td class="">房地合一分開計稅</td></tr></table><div class="col" style="gap:34px;align-items:center;"><div class="icon" style="--s:104px;"><img src="../../assets/icons/22-warning.svg" alt=""></div><div class="icon" style="--s:104px;"><img src="../../assets/icons/07-check-circle.svg" alt=""></div></div></div><div class="foot">出處：所得稅法第2條、第5條、第7條、第14條之4、第71條</div></section>
+<section class="slide nofoot" aria-label="免責聲明"><div class="slab k" style="right:-120px;top:-60px;width:560px;height:260px;transform:rotate(-14deg);"></div>
+<div class="slab" style="--c:var(--purple);right:-110px;top:-80px;width:540px;height:240px;transform:rotate(-14deg);"></div>
+<div class="dots" style="left:40px;bottom:40px;width:300px;height:160px;"></div>
+<div class="abs" style="left:96px;top:160px;width:820px;"><div class="tag" style="position:static;display:inline-block;font-size:22px;">資料基準日：115年11月24日</div>
+<div style="font-size:72px;font-weight:900;transform:skewX(-8deg);text-shadow:6px 6px 0 var(--orange);margin:18px 0 30px;">免責聲明</div>
+<div class="panel"><p>本內容為教學整理，資料基準日為115年11月24日，僅供學習參考，不構成個案稅務或法律意見。法規與數額可能修正，實際適用請以財政部及主管機關最新公告為準，或洽詢專業人士。</p></div></div>
+<div class="icon" style="--s:150px;position:absolute;right:140px;bottom:110px;"><img src="../../assets/icons/11-book.svg" alt=""></div></section>
+</main>
+<div class="hint">← → 翻頁｜F 全螢幕</div>
+<pre id="deck-check"></pre>
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),total=slides.length,cur=0;
+  var q=location.search;
+  slides.forEach(function(s,i){if(i===0)return;var n=document.createElement('div');n.className='pno';n.textContent=(i+1)+' / '+total;s.appendChild(n);});
+  function fit(){var k=Math.min(innerWidth/1280,innerHeight/720);slides.forEach(function(s){s.style.transform='scale('+k+')';});}
+  function show(i){cur=Math.max(0,Math.min(total-1,i));slides.forEach(function(s,j){s.classList.toggle('active',j===cur);});if(location.hash!=='#'+(cur+1))history.replaceState(null,'','#'+(cur+1));}
+  function fromHash(){var n=parseInt(location.hash.slice(1),10);return isNaN(n)?0:n-1;}
+  document.addEventListener('keydown',function(e){var k=e.key;
+    if(k==='ArrowRight'||k==='PageDown'||k===' '||k==='Enter'){e.preventDefault();show(cur+1);}
+    else if(k==='ArrowLeft'||k==='PageUp'||k==='Backspace'){e.preventDefault();show(cur-1);}
+    else if(k==='Home')show(0);else if(k==='End')show(total-1);
+    else if(k==='f'||k==='F'){if(!document.fullscreenElement){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}}});
+  document.getElementById('deck').addEventListener('click',function(e){show(e.clientX>innerWidth/2?cur+1:cur-1);});
+  addEventListener('resize',fit);addEventListener('hashchange',function(){show(fromHash());});
+  fit();show(fromHash());
+  var h=document.querySelector('.hint');
+  if(/check|shot/.test(q)){if(h)h.remove();}else{setTimeout(function(){if(h)h.classList.add('gone');},3500);}
+  if(/check/.test(q)){
+    function run(){
+      var out={fontLoaded:document.fonts.check('900 20px "Noto Sans TC"'),slides:[]};
+      slides.forEach(function(s,i){
+        show(i);var sr=s.getBoundingClientRect(),k=sr.width/1280,issues=[];
+        s.querySelectorAll('*').forEach(function(e){
+          if(e.closest('.slab,.speed,.dots,.stripes'))return;
+          var r=e.getBoundingClientRect();if(!r.width||!r.height)return;
+          var L=(r.left-sr.left)/k,T=(r.top-sr.top)/k,R=(r.right-sr.left)/k,B=(r.bottom-sr.top)/k;
+          var txt=(e.textContent||e.getAttribute('src')||'').trim().slice(0,16);
+          if(R>1262||L<14||T<6||B>714)issues.push('超出投影片邊界：'+txt);
+          else if(!e.closest('.foot,.pno')&&!s.classList.contains('nofoot')&&B>672)issues.push('壓到頁尾區：'+txt);
+          if(e.classList.contains('stat')){var p=e.parentElement.closest('.panel')||s,pr=p.getBoundingClientRect();if(r.right>pr.right+2||r.left<pr.left-2)issues.push('大數字超出框：'+txt);}
+          if(e.tagName==='IMG'&&(!e.complete||e.naturalWidth===0))issues.push('圖片無法載入：'+e.getAttribute('src'));
+        });
+        s.querySelectorAll('.panel,table.tbl').forEach(function(p){
+          var pr=p.getBoundingClientRect();p.querySelectorAll('p,li,td,th,div,img').forEach(function(c){if(c.closest('.slab,.speed,.dots,.stripes,.tag'))return;var cr=c.getBoundingClientRect();if(cr.width&&(cr.right>pr.right+2||cr.bottom>pr.bottom+2))issues.push('內容超出框：'+(c.textContent||'').trim().slice(0,16));});
+        });
+        out.slides.push({no:i+1,issues:issues.filter(function(v,j,a){return a.indexOf(v)===j;})});
+      });
+      var pre=document.getElementById('deck-check');pre.textContent=JSON.stringify(out);document.title='DECK-CHECK-DONE';
+    }
+    var done=false;function go(){if(done)return;done=true;run();}
+    (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){setTimeout(go,300);});
+    setTimeout(go,6000);
+  }
+})();
+</script>
+</body>
+</html>

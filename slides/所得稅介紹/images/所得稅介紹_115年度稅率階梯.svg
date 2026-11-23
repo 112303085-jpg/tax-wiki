@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480">
+<g font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif" text-anchor="middle">
+<rect x="20" y="320" width="156" height="80" rx="10" fill="#5B7FFF"/>
+<text x="98" y="372" font-size="40" font-weight="700" fill="#FFFFFF">5%</text>
+<rect x="196" y="260" width="156" height="140" rx="10" fill="#2D5BFF"/>
+<text x="274" y="312" font-size="40" font-weight="700" fill="#FFFFFF">12%</text>
+<rect x="372" y="200" width="156" height="200" rx="10" fill="#1F45D6"/>
+<text x="450" y="252" font-size="40" font-weight="700" fill="#FFFFFF">20%</text>
+<rect x="548" y="140" width="156" height="260" rx="10" fill="#7B61FF"/>
+<text x="626" y="192" font-size="40" font-weight="700" fill="#FFFFFF">30%</text>
+<rect x="724" y="80" width="156" height="320" rx="10" fill="#FF8A3D"/>
+<text x="802" y="132" font-size="40" font-weight="700" fill="#FFFFFF">40%</text>
+<rect x="10" y="404" width="880" height="4" fill="#1B2B4B" fill-opacity=".25"/>
+<g font-size="22" fill="#1B2B4B">
+<text x="98" y="442">61萬以下</text>
+<text x="274" y="442">61萬～138萬</text>
+<text x="450" y="442">138萬～277萬</text>
+<text x="626" y="442">277萬～519萬</text>
+<text x="802" y="442">519萬以上</text>
+</g>
+<text x="450" y="474" font-size="18" fill="#1B2B4B" fill-opacity=".7">綜合所得淨額（115年度級距；「～」表示超過前者至後者）</text>
+</g>
+</svg>

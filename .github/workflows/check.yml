@@ -1,0 +1,36 @@
+# 每次推送或開 Pull Request 時，在 GitHub 上自動檢查（規則見 AGENTS.md 第 9 節）。
+# 產生 PowerPoint、用 Edge 截圖需要 Windows 的 Office，這裡不跑；只確認內容正確、成品沒有過期。
+name: wiki 檢查
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: 條文與官方解釋引文比對（law.py check）
+        run: find wiki -name '*.md' -print0 | xargs -0 python tools/law.py check
+
+      - name: 例題重新執行比對（calc.py check）
+        run: find wiki -name '*.md' -print0 | xargs -0 python tools/calc.py check
+
+      - name: 簡報內容與成品一致性（deck.py ci）
+        run: |
+          status=0
+          for d in slides/*/; do
+            if [ -f "$d/state.json" ]; then
+              python tools/deck.py ci "$d" || status=1
+            fi
+          done
+          exit $status

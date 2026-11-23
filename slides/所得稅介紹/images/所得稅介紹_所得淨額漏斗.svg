@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="460" viewBox="0 0 900 460">
+<g font-family="'Noto Sans TC','Microsoft JhengHei','Segoe UI',sans-serif" font-weight="700" text-anchor="middle" fill="#FFFFFF">
+<path d="M40 10H860L800 110H100z" fill="#2D5BFF"/>
+<text x="450" y="74" font-size="38">綜合所得總額</text>
+<path d="M110 122H790L730 222H170z" fill="#7B61FF"/>
+<text x="450" y="186" font-size="36">－ 免稅額</text>
+<path d="M180 234H720L660 334H240z" fill="#14B8A6"/>
+<text x="450" y="298" font-size="36">－ 扣除額</text>
+<path d="M250 346H650L600 446H300z" fill="#FF8A3D"/>
+<text x="450" y="410" font-size="36">＝ 所得淨額</text>
+</g>
+</svg>

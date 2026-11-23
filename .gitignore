@@ -1,0 +1,9 @@
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+__pycache__/
+desktop.ini
+Thumbs.db
+
+# deck.py 檢查產生的截圖與暫存
+slides/*/_check/
