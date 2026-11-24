@@ -7,3 +7,6 @@ Thumbs.db
 
 # deck.py 檢查產生的截圖與暫存
 slides/*/_check/
+
+# tools/build_site.py 產生的網站（由 GitHub Actions 建置，不進 git）
+_site/

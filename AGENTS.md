@@ -66,7 +66,7 @@ LLM Wiki/
 ├─ slides/             ← 簡報（產出物）：HTML 簡報、PowerPoint 檔＋產生它的腳本，或 Marp 檔
 │   ├─ <主題>/         ← 依第 7.3.1 節流程製作的簡報：需求、素材、大綱、逐頁內容、檢查報告、state.json、成品
 │   └─ images/         ← 個別簡報專用的自製圖（檔名以簡報名稱開頭）
-├─ tools/              ← law.py（條文嵌入與比對）、calc.py（例題驗算）、deck.py（簡報流程），見第 9 節
+├─ tools/              ← law.py（條文嵌入與比對）、calc.py（例題驗算）、deck.py（簡報流程）、build_site.py（簡報網站），見第 9 節
 └─ assets/             ← 簡報用 SVG 素材（不是原始來源的附件）
     ├─ icons/ diagrams/ shapes/ callouts/ backgrounds/
     ├─ preview.html    ← 全部素材預覽
@@ -367,6 +367,7 @@ inventory → 撰寫大綱 → check-outline ─(不過，↻ 重寫)
 - **Obsidian**：以本資料夾為 vault 開啟。建議設定：附件資料夾 `raw/attachments/`；安裝 Dataview（依 frontmatter 篩選，例如找出未查證或過期頁面）與 Marp 外掛。
 - **git**：每次 ingest／lint 後 commit，訊息格式 `ingest: 標題`、`lint: YYY-MM-DD`。
 - **GitHub 自動檢查**（`.github/workflows/check.yml`）：每次推送或開 Pull Request，在 GitHub 上跑 `law.py check`、`calc.py check` 與 `deck.py ci`（全部 wiki 頁、每份 `slides/<主題>/`）。`deck.py ci` 不需要 Office，會確認簡報內容仍通過檢查、成品不是過期或被手改的、草稿／定稿標示與目前審閱狀態一致；不通過時依訊息在本機重跑對應步驟（render 等需要 Windows 的 PowerPoint 與 Edge，只能在本機做）。
+- **簡報網站（GitHub Pages）**：repo 為公開；檢查通過後，同一個 workflow 以 `tools/build_site.py` 產生網站並部署到 https://112303085-jpg.github.io/tax-wiki/ 。**只放「定稿」簡報**（`state.json` 的 final.status 為定稿且 `deck.py ci` 通過），草稿不會出現在網站上。網站含簡報目錄、HTML 簡報與 PowerPoint 下載。
 - 換行字元：`.gitattributes` 讓文字檔在 Git 中一律為 LF；`deck.py` 的檔案指紋會先把 CRLF 統一成 LF，所以 Windows 與 GitHub 算出的指紋相同。
 - 規模變大（數百頁）後再考慮全文搜尋工具；在此之前以 `index.md` 為主。
 - **tools/law.py**（條文原文）：

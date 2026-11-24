@@ -127,3 +127,18 @@
 - 測試：本機 law.py、calc.py、deck.py ci 皆通過；故意改壞的複本（逐頁內容 render 後被改、狀態標示不符）ci 能擋下。
 - 第9節：補 GitHub 自動檢查與換行字元說明。
 - 尚未完成：Git 尚未安裝，尚未建立 repo、commit 與推送。
+
+## [115-11-24] fix | 放上 GitHub，自動檢查第一次通過
+- 本機 Git repo 建立；commit 身分為使用者的 GitHub 匿名 email（不含學校 email）。
+- 推送到 GitHub 私人 repo（112303085-jpg/tax-wiki，main 分支）；登入由使用者以 Git Credential Manager 完成。
+- GitHub Actions「wiki 檢查」第一次執行通過（law.py check、calc.py check、deck.py ci），使用者在 GitHub 確認為綠勾。
+
+## [115-11-24] slides | 所得稅介紹發佈成網頁
+- 將 slides/所得稅介紹/所得稅介紹.html（定稿）發佈為 claude.ai 網頁：https://claude.ai/artifact/4ffUDfPoUjU9Z3YYUXNFHs
+- 發佈用複本只改圖貼路徑（../../assets/ → assets/）並附上用到的20張圖，內容與本機定稿相同。
+- 網頁預設只有使用者本人看得到，分享給其他人由使用者在頁面的 Share 選單設定。內容更新時須重新發佈到同一網址。
+
+## [115-11-24] schema | repo 公開並以 GitHub Pages 發佈定稿簡報
+- 使用者決定：repo 改為公開（方案 A）、開啟 GitHub Pages。公開前已檢查 repo 內無個人資料或密碼類內容（commit 使用 GitHub 匿名 email）。
+- 新增：tools/build_site.py（只收「定稿」且 deck.py ci 通過的簡報，產生目錄頁、HTML 簡報、PowerPoint 下載）；.github/workflows/check.yml 加上 build-site、deploy-site（檢查通過且推送到 main 才部署）；README.md；.gitignore 排除 _site/。
+- 第3節、第9節：補 build_site.py 與簡報網站說明。
